@@ -1,0 +1,59 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Semana6Project.Views.RegionsPage">
+    <ContentPage.Resources>
+        <LinearGradientBrush x:Key="BackgroundBrush"
+                             StartPoint="0,0"
+                             EndPoint="1,1">
+            <GradientStop Color="#4A90E2" Offset="0"/>
+            <GradientStop Color="#DDDDDD" Offset="1"/>
+        </LinearGradientBrush>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="Margin" Value="0,10" />
+        </Style>
+        <Style TargetType="StackLayout">
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="Spacing" Value="20" />
+            <Setter Property="BackgroundColor" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="BackgroundColor" Value="#E0E0E0" />
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <StackLayout BackgroundColor="{StaticResource BackgroundBrush}">
+            <Label 
+                Text="Regions"
+                HorizontalOptions="Center" 
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+        <ListView ItemsSource="{Binding Regions}" RowHeight="50">
+            <ListView.Header>
+                <Grid BackgroundColor="#4A90E2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="ID" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0"/>
+                    <Label Text="Region" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Id}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0"/>
+                            <Label Text="{Binding Region}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
